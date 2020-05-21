@@ -17,14 +17,14 @@ namespace Mankind
         }
         public decimal PerHour
         {
-            get { return (SalaryWeek/7)*DailyHour; }
+            get { return (SalaryWeek/7)/DailyHour; }
             set { perHour = value; }
         }
         public int DailyHour
         {
             get { return dailyHour; }
             set { if (value < 1 || value > 12)
-                    throw new ArgumentException("Expected value mismatch! Argument: workHoursPerDay");
+                    throw new ArgumentException("Expected value mismatch! Argument: working Hours Per Day");
                 dailyHour = value; }
         }
         public decimal SalaryWeek
@@ -40,9 +40,16 @@ namespace Mankind
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(
-                $"FirstName: {this.FirstName}, LastName: {this.LastName}, Salary per Week:{this.SalaryWeek}" +
-                $"\n Hours per day: {this.DailyHour}, Salary per Hour: {this.PerHour}");
+            stringBuilder.AppendLine($"Type: {this.GetType().Name}")
+                            .AppendLine($"FirstName: {this.FirstName}")
+                            .AppendLine($"LastName: {this.LastName}")
+                            .AppendLine($"Salary per Week:{this.SalaryWeek}")
+                            .AppendLine($"Hours per day: {this.DailyHour}")
+                            .AppendLine($"Salary per Hour: {this.PerHour:f2}");
+           
+            //stringBuilder.Append(
+            //    $"FirstName: {this.FirstName}, LastName: {this.LastName}, Salary per Week:{this.SalaryWeek}" +
+            //    $"\n Hours per day: {this.DailyHour}, Salary per Hour: {this.PerHour:f2}");
             return stringBuilder.ToString();
         }
 

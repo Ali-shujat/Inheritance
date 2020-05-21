@@ -24,7 +24,10 @@ namespace Mankind
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(String.Format("FirstName: {0}, LastName: {1}, FacultyNumber:{2}", this.FirstName, this.LastName,this.FacultyNumber));
+            stringBuilder.AppendLine($"Type: {this.GetType().Name}")
+                            .AppendLine($"FirstName: {this.FirstName}")
+                            .AppendLine($"LastName: {this.LastName}")
+                            .AppendLine($"FacultyNumber: {this.FacultyNumber}");
             return stringBuilder.ToString();
         }
 
