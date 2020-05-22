@@ -32,9 +32,6 @@ namespace Mankind
             {
                 Console.WriteLine(ae.Message);
             }
-
-
-
             Console.ReadKey();
 
         }
